@@ -53,17 +53,26 @@ class DuplicateDetector:
                 if n["resume_id"] not in same_ids and n["similarity"] >= integ.near_duplicate_cosine
             ]
             if near:
+                top = near[0]
+                mine = _norm_name(doc.contact.name)
+                same_person = bool(mine) and _norm_name(top.get("candidate_name")) == mine
+                other = top.get("candidate_name") or top["file_name"]
                 flags.append(
                     Flag(
                         code="NEAR_DUPLICATE_RESUME",
-                        severity=Severity.MEDIUM,
+                        # a resubmission by the same person is a note; two different people with the same resume is not
+                        severity=Severity.LOW if same_person else Severity.MEDIUM,
                         detector=self.name,
-                        message=f"Resume content is {near[0]['similarity']:.1%} similar to {near[0].get('candidate_name') or near[0]['file_name']}",
+                        message=(
+                            f"Another submission from the same candidate ({other}) is {top['similarity']:.1%} similar"
+                            if same_person
+                            else f"Resume content is {top['similarity']:.1%} similar to {other}'s resume — possible copied/template resume"
+                        ),
                         evidence=Evidence(
-                            measured_value=round(near[0]["similarity"], 4),
+                            measured_value=round(top["similarity"], 4),
                             threshold=integ.near_duplicate_cosine,
                             location="file",
-                            details={"similar_resumes": near},
+                            details={"similar_resumes": near, "same_candidate": same_person},
                         ),
                     )
                 )

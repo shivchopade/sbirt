@@ -33,9 +33,15 @@ def test_unknown_route_uses_error_envelope(client: TestClient) -> None:
 
 
 def test_validation_error_envelope(client: TestClient) -> None:
-    res = client.post("/api/v1/jobs", json={"title": ""})
+    res = client.get("/api/v1/jobs/not-a-uuid")
     assert res.status_code == 422
     assert res.json()["error"]["code"] == "VALIDATION_ERROR"
+
+
+def test_model_dependent_endpoints_report_not_ready(client: TestClient) -> None:
+    res = client.post("/api/v1/jobs", json={"title": "x", "jd_text": "y" * 40})
+    assert res.status_code == 503
+    assert res.json()["error"]["code"] == "MODELS_NOT_LOADED"
 
 
 def test_settings_env_override(monkeypatch: pytest.MonkeyPatch) -> None:

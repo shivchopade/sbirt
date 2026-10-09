@@ -328,6 +328,15 @@ def test_duplicate_detectors(job, resources, fixtures_dir: Path) -> None:
     got = {f.code: f for f in result.flags}
     assert {"DUPLICATE_FILE", "NEAR_DUPLICATE_RESUME", "IDENTITY_CONFLICT"} <= set(got)
     assert got["NEAR_DUPLICATE_RESUME"].evidence.threshold == 0.97
+    assert Severity(got["NEAR_DUPLICATE_RESUME"].severity) == Severity.MEDIUM  # a different person
+    resubmission = FakeIndex(
+        near=[
+            {"resume_id": "r5", "file_name": "old.pdf", "candidate_name": "Aarav Sharma", "similarity": 0.99}
+        ]
+    )
+    result2 = analyze_document(data, "clean.pdf", job, resources, duplicate_index=resubmission, today=TODAY)
+    near = next(f for f in result2.flags if f.code == "NEAR_DUPLICATE_RESUME")
+    assert Severity(near.severity) == Severity.LOW and "same candidate" in near.message
     assert Severity(got["IDENTITY_CONFLICT"].severity) == Severity.HIGH
     same_person = FakeIndex(contact=[{"resume_id": "r4", "candidate_name": "Aarav Sharma"}])
     result = analyze_document(data, "clean.pdf", job, resources, duplicate_index=same_person, today=TODAY)

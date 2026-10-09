@@ -4,6 +4,7 @@
       "Body_upload_resumes_api_v1_jobs__job_id__resumes_post": {
         "properties": {
           "files": {
+            "description": "PDF or DOCX files",
             "items": {
               "contentMediaType": "application/octet-stream",
               "type": "string"
@@ -1736,7 +1737,7 @@
             "description": "Unprocessable Entity"
           }
         },
-        "summary": "List Jobs",
+        "summary": "List jobs",
         "tags": [
           "jobs"
         ]
@@ -1785,7 +1786,7 @@
             "description": "Unprocessable Entity"
           }
         },
-        "summary": "Create Job",
+        "summary": "Create a job from a JD",
         "tags": [
           "jobs"
         ]
@@ -1838,7 +1839,7 @@
             "description": "Unprocessable Entity"
           }
         },
-        "summary": "Get Job",
+        "summary": "Job detail with parsed requirements and skills",
         "tags": [
           "jobs"
         ]
@@ -1923,7 +1924,7 @@
             "description": "Unprocessable Entity"
           }
         },
-        "summary": "List Candidates",
+        "summary": "Candidate table rows",
         "tags": [
           "jobs"
         ]
@@ -1975,6 +1976,16 @@
             },
             "description": "Not Found"
           },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Request Entity Too Large"
+          },
           "422": {
             "content": {
               "application/json": {
@@ -1986,7 +1997,7 @@
             "description": "Unprocessable Entity"
           }
         },
-        "summary": "Upload Resumes",
+        "summary": "Upload resumes (PDF/DOCX, many files) \u2014 processed in the background",
         "tags": [
           "jobs"
         ]
@@ -2039,7 +2050,7 @@
             "description": "Unprocessable Entity"
           }
         },
-        "summary": "Shortlist",
+        "summary": "Approved / shortlisted candidates with contact details (read-only, for the scheduling agent)",
         "tags": [
           "jobs"
         ]
@@ -2092,7 +2103,7 @@
             "description": "Validation Error"
           }
         },
-        "summary": "Get Report",
+        "summary": "Full explainable report",
         "tags": [
           "resumes"
         ]
@@ -2155,7 +2166,7 @@
             "description": "Validation Error"
           }
         },
-        "summary": "Set Decision",
+        "summary": "Human override (stored with a timestamp)",
         "tags": [
           "resumes"
         ]
@@ -2190,7 +2201,7 @@
             "content": {
               "image/png": {}
             },
-            "description": "Rendered page with flagged regions boxed"
+            "description": "PNG render of the page"
           },
           "404": {
             "content": {
@@ -2213,7 +2224,7 @@
             "description": "Validation Error"
           }
         },
-        "summary": "Page Preview",
+        "summary": "Rendered page \u2014 hidden text boxed red, JD-copied lines boxed orange",
         "tags": [
           "resumes"
         ]
@@ -2255,6 +2266,16 @@
             },
             "description": "Not Found"
           },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
           "422": {
             "content": {
               "application/json": {
@@ -2266,7 +2287,7 @@
             "description": "Validation Error"
           }
         },
-        "summary": "Rescore",
+        "summary": "Recompute with the current configuration (no re-upload)",
         "tags": [
           "resumes"
         ]
