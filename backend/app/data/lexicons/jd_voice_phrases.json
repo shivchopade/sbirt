@@ -1,0 +1,4 @@
+{
+  "description": "Phrases that only make sense in a job description, never in a candidate's own resume.",
+  "phrases": ["the ideal candidate", "ideal candidate will", "you will", "you'll be", "you will be responsible", "we are looking for", "we're looking for", "we are seeking", "we're seeking", "responsibilities include", "join our team", "join our growing team", "what we offer", "what you'll do", "what you will do", "who you are", "the successful candidate", "the candidate will", "candidates must", "applicants must", "you should have", "you must have", "we offer", "our team is", "about the role", "equal opportunity employer", "how to apply", "apply now"]
+}

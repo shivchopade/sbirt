@@ -76,8 +76,9 @@ class ScoringSettings(BaseModel):
     weight_overall: float = 0.2
     calib_floor: float = 0.25  # raw cosine mapped to 0
     calib_ceiling: float = 0.75  # raw cosine mapped to 100
-    overall_floor: float = 0.25
-    overall_ceiling: float = 0.75
+    # mean-pooled resume/JD vectors are far more similar than single sentences, so they get their own range
+    overall_floor: float = 0.35
+    overall_ceiling: float = 0.95
     requirement_met: float = 0.55
     skill_semantic_threshold: float = 0.80
     must_have_weight: float = 1.0
@@ -90,9 +91,11 @@ class IntegritySettings(BaseModel):
     jd_line_min_words: int = 8
     jd_verbatim_ratio: float = 90.0
     jd_partial_ratio: float = 95.0
-    jd_partial_min_share: float = (
-        0.6  # JD sentence must be ≥ this share of the resume unit for a partial match
-    )
+    # a JD sentence must be at least this share of the resume unit for a partial (contained) match
+    jd_partial_min_share: float = 0.6
+    # inside a bulk copy even short exact JD lines are excluded from clean_score
+    jd_bulk_short_min_words: int = 4
+    jd_bulk_short_ratio: float = 95.0
     jd_shingle_size: int = 8
     jd_bulk_high: float = 0.15
     jd_bulk_critical: float = 0.40

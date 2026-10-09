@@ -120,6 +120,9 @@ BASE = ResumeContent(
                 "Designed PostgreSQL schemas and optimised slow queries, cutting report generation time by 60%.",
                 "Packaged the microservices as Docker images and ran them on AWS EC2 behind an Nginx load balancer.",
                 "Added unit and integration tests with pytest, raising coverage from 45% to 85%.",
+                "Set up Prometheus alerts and Grafana dashboards to track API latency and error rates in production.",
+                "Reviewed pull requests for a team of six engineers and mentored two interns.",
+                "Moved payout processing to Celery workers backed by RabbitMQ.",
             ],
         ),
         Job(

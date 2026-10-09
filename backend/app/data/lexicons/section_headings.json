@@ -1,0 +1,16 @@
+{
+  "summary": ["summary", "professional summary", "profile", "professional profile", "profile summary", "about me", "about", "objective", "career objective", "career summary", "overview", "personal statement", "executive summary"],
+  "skills": ["skills", "technical skills", "key skills", "core skills", "skill set", "skillset", "skills summary", "core competencies", "competencies", "technologies", "tech stack", "tools and technologies", "technical expertise", "areas of expertise", "expertise", "it skills", "technical proficiency", "skills and tools"],
+  "experience": ["experience", "work experience", "professional experience", "employment history", "employment", "work history", "career history", "internships", "internship", "internship experience", "relevant experience", "industry experience"],
+  "projects": ["projects", "academic projects", "personal projects", "key projects", "project experience", "major projects", "side projects", "selected projects", "project work"],
+  "education": ["education", "academic background", "academics", "educational qualifications", "educational qualification", "qualifications", "academic qualifications", "education and training", "academic details"],
+  "certifications": ["certifications", "certificates", "certification", "licenses and certifications", "licences and certifications", "courses", "training", "online courses", "trainings", "courses and certifications"],
+  "achievements": ["achievements", "awards", "honors", "honours", "accomplishments", "awards and achievements", "extracurricular activities", "extra curricular activities", "extra-curricular activities", "activities", "positions of responsibility", "leadership", "volunteering", "volunteer experience"],
+  "publications": ["publications", "research", "papers", "research papers", "research experience"],
+  "languages": ["languages", "languages known", "language proficiency", "spoken languages"],
+  "interests": ["interests", "hobbies", "hobbies and interests", "interests and hobbies"],
+  "personal_details": ["personal details", "personal information", "personal info", "personal data", "personal particulars"],
+  "references": ["references", "referees"],
+  "declaration": ["declaration"],
+  "contact": ["contact", "contact information", "contact details"]
+}

@@ -1,0 +1,4 @@
+{
+  "description": "Custom stopwords added to spaCy's list for the lexical text: resume filler that carries no skill signal.",
+  "words": ["etc", "e.g", "eg", "i.e", "ie", "via", "using", "use", "used", "various", "responsible", "responsibility", "responsibilities", "including", "include", "includes", "also", "well", "strong", "good", "excellent", "great", "successfully", "effectively", "efficiently", "key", "new", "high", "role", "team", "teams", "member", "members", "work", "worked", "working", "company", "client", "clients", "project", "projects", "year", "years", "month", "months", "present", "current", "currently", "jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "sept", "oct", "nov", "dec"]
+}
