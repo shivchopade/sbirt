@@ -1,0 +1,8 @@
+# Force LF everywhere so scripts behave the same on macOS, Linux containers and WSL2.
+* text=auto eol=lf
+*.sh text eol=lf
+*.pdf binary
+*.docx binary
+*.png binary
+*.jpg binary
+*.ttf binary

@@ -1,0 +1,62 @@
+# One command:  docker compose up --build   → http://localhost:3000 (UI), http://localhost:8000/docs (API)
+# Ports are bound to 127.0.0.1 only: there is no authentication, so nothing is exposed to the network.
+name: sbirt
+
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_USER: screener
+      POSTGRES_PASSWORD: screener
+      POSTGRES_DB: screener
+    ports:
+      - "127.0.0.1:${DB_PORT:-5433}:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U screener -d screener"]
+      interval: 3s
+      timeout: 3s
+      retries: 30
+
+  api:
+    build:
+      context: ./backend
+      args:
+        SBERT_MODEL: ${SBERT_MODEL:-sentence-transformers/all-MiniLM-L6-v2}
+        INSTALL_OCR: ${INSTALL_OCR:-false}
+        INSTALL_LIBREOFFICE: ${INSTALL_LIBREOFFICE:-false}
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      DATABASE_URL: postgresql+psycopg://screener:screener@db:5432/screener
+      STORAGE_DIR: /data
+      LOG_JSON: "true"
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "127.0.0.1:${API_PORT:-8000}:8000"
+    volumes:
+      - storage:/data
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=3)"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+      start_period: 40s
+
+  web:
+    build:
+      context: ./frontend
+      args:
+        NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://localhost:8000}
+    depends_on:
+      - api
+    ports:
+      - "127.0.0.1:${WEB_PORT:-3000}:3000"
+
+volumes:
+  pgdata:
+  storage:

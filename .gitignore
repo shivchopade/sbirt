@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+
+# Runtime data (uploads, quarantine, previews) and private resumes — never commit
+var/
+samples/private/
+backend/tests/.generated/
+
+# Local environment
+.env
+
+# Node / Next.js
+node_modules/
+frontend/.next/
+frontend/out/
+frontend/next-env.d.ts
+*.tsbuildinfo
+
+# OS / editors
+.DS_Store
+.idea/
+.vscode/
+
+# Report build intermediates
+docs/report/build/
