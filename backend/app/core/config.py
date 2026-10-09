@@ -109,6 +109,8 @@ class IntegritySettings(BaseModel):
     repeated_line_min: int = 3
     repeated_line_min_words: int = 4
     injection_semantic_threshold: float = 0.75
+    # lower semantic bar, only when the line also addresses an automated reader with a directive
+    injection_cue_threshold: float = 0.60
     injection_min_words: int = 4
     invisible_unicode_threshold: int = 5
     invisible_unicode_high: int = 50
