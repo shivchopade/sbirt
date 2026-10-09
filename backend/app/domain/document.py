@@ -41,6 +41,9 @@ class TextSpan:
     block_id: int = -1
     layer: str | None = None
     confidence: str | None = None  # "high" when a rule and the independent pixel check agree
+    attrs: dict[str, Any] = field(
+        default_factory=dict
+    )  # format-specific: docx vanish/highlight, pdf trace type
 
     def hide(self, reason: HiddenReason, measured: float | None = None) -> None:
         if reason not in self.hidden_reasons:
