@@ -1,0 +1,31 @@
+Backend Engineer (Python) - FinEdge Payments, Pune
+
+About us
+FinEdge is a fast-growing fintech company building payment infrastructure for small businesses across India. We value ownership, curiosity and clean engineering.
+
+We are looking for a Backend Engineer to join our team. The ideal candidate enjoys solving real problems for merchants and cares about reliable software.
+
+Responsibilities
+- Design, build and maintain scalable REST APIs using Python and FastAPI.
+- Model data and write efficient queries for PostgreSQL databases.
+- Containerize services with Docker and deploy them to AWS.
+- Write unit and integration tests and take part in code reviews.
+- Monitor production systems and improve reliability and performance.
+
+Requirements
+- 2+ years of professional experience in backend development with Python.
+- Strong knowledge of SQL and relational database design.
+- Experience building and documenting RESTful APIs.
+- Hands-on experience with Docker and Git.
+- Understanding of authentication, caching and message queues.
+
+Nice to have
+- Experience with Kubernetes and CI/CD pipelines.
+- Familiarity with Redis or Kafka.
+- Exposure to machine learning or data engineering projects.
+
+Benefits
+- Competitive salary, health insurance and flexible working hours.
+- Learning budget for courses and conferences.
+
+FinEdge is an equal opportunity employer and values diversity at our company.

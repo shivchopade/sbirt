@@ -28,11 +28,12 @@ class Resources:
     injection_vectors: np.ndarray
 
 
-def load_resources(settings: Settings) -> Resources:
+def load_resources(settings: Settings, *, check_dim: bool = True) -> Resources:
+    """check_dim=False is for offline scripts that compare models without a database."""
     started = time.perf_counter()
     device = select_device(settings.device)
     embedder = Embedder(settings.sbert_model, device, settings.embed_batch_size, settings.embed_cache_size)
-    if embedder.dim != settings.embedding_dim:
+    if check_dim and embedder.dim != settings.embedding_dim:
         raise RuntimeError(
             f"{settings.sbert_model} produces {embedder.dim}-dim vectors but EMBEDDING_DIM={settings.embedding_dim}; "
             "set EMBEDDING_DIM to match and run a migration"

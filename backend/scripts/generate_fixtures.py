@@ -943,6 +943,14 @@ FIT_BULLETS = [
     "Streamed payment events through Kafka topics into a reporting service.",
     "Set up Prometheus metrics and Grafana dashboards for on-call engineers.",
     "Built a Flask microservice that validates and stores KYC documents.",
+    "Migrated a monolith to FastAPI microservices behind an API gateway.",
+    "Tuned PostgreSQL indexes and partitioned large tables to speed up analytics queries.",
+    "Containerised legacy services with Docker Compose for consistent local development.",
+    "Wrote integration tests that run against a disposable PostgreSQL container in CI.",
+    "Designed idempotent webhook handlers for payment provider callbacks.",
+    "Reviewed pull requests and mentored junior developers on API design.",
+    "Built an async task pipeline with asyncio and aiohttp for third-party API calls.",
+    "Hardened authentication with JWT refresh tokens and rate limiting.",
 ]
 PARTIAL_BULLETS = [
     "Built responsive React dashboards that consume REST APIs.",
@@ -951,6 +959,12 @@ PARTIAL_BULLETS = [
     "Maintained a WordPress site and its PHP plugins.",
     "Automated Excel reports using Python and pandas.",
     "Tested Android apps manually and logged defects in Jira.",
+    "Designed landing pages in Figma and implemented them with Tailwind CSS.",
+    "Built a Java Spring Boot CRUD application for a college library.",
+    "Scraped e-commerce prices with BeautifulSoup for a market study.",
+    "Configured Google Analytics dashboards for a marketing team.",
+    "Maintained Excel macros that consolidate weekly sales reports.",
+    "Built a Flutter mobile app for tracking daily expenses.",
 ]
 UNFIT_BULLETS = [
     "Managed inventory and vendor relationships for three retail outlets.",
@@ -963,6 +977,12 @@ UNFIT_BULLETS = [
     "Coordinated hospital shift schedules for forty nurses.",
     "Negotiated contracts with logistics partners to reduce freight costs.",
     "Organised corporate events and managed budgets for each event.",
+    "Conducted statutory audits and verified fixed asset registers.",
+    "Recruited and onboarded forty retail staff across two cities.",
+    "Planned production schedules for a CNC machining line.",
+    "Wrote news articles and edited copy for a regional newspaper.",
+    "Managed a 20-bed ward and trained junior nursing staff.",
+    "Led site surveys and prepared estimates for road construction projects.",
 ]
 FIRST = [
     "Aditi",
@@ -1058,8 +1078,13 @@ def generate_calibration(out: Path, n: int = 40, seed: int = 7) -> Path:
             ],
             summary=f"{title} with {rng.randint(1, 6)} years of experience. " + bullets[0],
             skills=skills,
-            experience=[Job(f"{title} - Company {i}", "Jun 2020 - Present", bullets[1:])],
-            projects=[],
+            experience=[
+                Job(f"{title} - Company {i}", "Jun 2022 - Present", bullets[1:4]),
+                Job(f"Junior {title} - Startup {i}", "Jun 2020 - May 2022", bullets[4:]),
+            ],
+            projects=[Job("Personal project", "2023", [rng.choice(PARTIAL_BULLETS + FIT_BULLETS)])]
+            if rng.random() < 0.5
+            else [],
             education=["B.E. - Savitribai Phule Pune University (2016 - 2020)"],
         )
         fname = f"cand_{i:02d}_{profile}.pdf"
@@ -1069,15 +1094,158 @@ def generate_calibration(out: Path, n: int = 40, seed: int = 7) -> Path:
     return out
 
 
+def _person(
+    name: str, title: str, bullets: list[str], skills: list[tuple[str, str]], phone: str, *, years: int = 3
+) -> ResumeContent:
+    first, last = name.split()[0].lower(), name.split()[-1].lower()
+    return ResumeContent(
+        name=name,
+        title=title,
+        contact=[f"{first}.{last}@example.com", phone, "Pune, India"],
+        summary=f"{title} with {years} years of experience building software products. {bullets[0]}",
+        skills=skills,
+        experience=[
+            Job(f"{title} - Northwind Labs, Pune", "Jul 2023 - Present", bullets[1:4]),
+            Job("Software Engineer - Blue Orbit, Mumbai", "Jun 2021 - Jun 2023", bullets[4:]),
+        ],
+        projects=[],
+        education=["B.E. in Information Technology - University of Mumbai (2017 - 2021)"],
+    )
+
+
+DEMO_README = """# Demo resumes (synthetic)
+
+Eleven fictional candidates for the sample JD in `jd.txt` — each one shows one behaviour of the engine.
+Upload them all to a job created from `jd.txt` and compare the candidate table with this list.
+
+| File | What it demonstrates | Expected outcome |
+|---|---|---|
+| 01_aarav_sharma_strong_fit.pdf | strong, honest match | SHORTLISTED, no flags |
+| 02_rohan_verma_tailored.pdf | wording tailored to the JD, nothing copied | no flags, borderline score |
+| 03_priya_nair_dark_sidebar.pdf | white text on a dark sidebar (legit design) | no hidden-text flag |
+| 04_karan_mehta_white_text_jd.pdf | the whole JD pasted in white text | FLAGGED, clean ≪ raw score |
+| 05_sneha_kulkarni_prompt_injection.pdf | hidden "ignore all previous instructions…" | FLAGGED (PROMPT_INJECTION) |
+| 06_vikram_rao_keyword_stuffing.pdf | keyword block repeated many times | stuffing flags, score unchanged |
+| 07_meera_iyer_unrelated.pdf | chartered accountant applying for backend | NOT_SHORTLISTED |
+| 08_ananya_joshi_hidden_word_text.docx | Word "hidden" text with JD lines | FLAGGED (DOCX_HIDDEN) |
+| 09_arjun_patil_copied_jd_lines.pdf | JD sentences pasted as experience bullets | VERBATIM_JD_LINE, lines excluded |
+| 10_divya_singh_scanned.pdf | image-only scan, no text layer | UNPARSEABLE → NEEDS_REVIEW |
+| 11_nikhil_deshmukh_javascript.pdf | PDF with a JavaScript open action | FLAGGED (MALICIOUS_PDF_FEATURES) |
+"""
+
+
+def generate_demo(out: Path) -> dict[str, Path]:
+    """A curated, varied demo set (different people, one behaviour each) for presentations."""
+    out.mkdir(parents=True, exist_ok=True)
+    (out / "jd.txt").write_text(SAMPLE_JD)
+    (out / "README.md").write_text(DEMO_README)
+    py_skills = [
+        ("Languages", "Python, SQL"),
+        ("Frameworks", "FastAPI, Django"),
+        ("Tools", "Docker, Git, AWS, Redis"),
+    ]
+    files: dict[str, Path] = {}
+    jd_lines = [ln.lstrip("- ").strip() for ln in SAMPLE_JD.splitlines() if ln.startswith("- ")]
+
+    def pdf(name: str, content: ResumeContent, **kw) -> None:
+        files[name] = render_pdf(out / name, content, **kw)
+
+    pdf("01_aarav_sharma_strong_fit.pdf", BASE)
+    pdf("02_rohan_verma_tailored.pdf", TAILORED)
+    priya = _person(
+        "PRIYA NAIR", "Python Developer", FIT_BULLETS[14:20] + FIT_BULLETS[2:4], py_skills, "+91 98220 11223"
+    )
+    pdf("03_priya_nair_dark_sidebar.pdf", priya, layout="sidebar")
+    karan = _person(
+        "KARAN MEHTA",
+        "Full Stack Developer",
+        [
+            PARTIAL_BULLETS[0],
+            PARTIAL_BULLETS[1],
+            PARTIAL_BULLETS[6],
+            FIT_BULLETS[9],
+            PARTIAL_BULLETS[7],
+            PARTIAL_BULLETS[4],
+        ],
+        [("Languages", "JavaScript, TypeScript, Python"), ("Frameworks", "React, Node.js, Express")],
+        "+91 98111 22334",
+    )
+    pdf("04_karan_mehta_white_text_jd.pdf", karan, extras=[hidden_block(SAMPLE_JD, color=white, size=7)])
+    sneha = _person(
+        "SNEHA KULKARNI",
+        "Backend Engineer",
+        FIT_BULLETS[7:13] + FIT_BULLETS[0:1],
+        py_skills,
+        "+91 97654 32109",
+    )
+    pdf(
+        "05_sneha_kulkarni_prompt_injection.pdf", sneha, extras=[hidden_block(INJECTION, color=white, size=6)]
+    )
+    vikram = _person(
+        "VIKRAM RAO",
+        "Software Engineer",
+        FIT_BULLETS[3:6] + PARTIAL_BULLETS[2:5],
+        py_skills,
+        "+91 99887 66554",
+    )
+    stuffing = "Python FastAPI PostgreSQL Docker AWS REST APIs " * 6
+    pdf(
+        "06_vikram_rao_keyword_stuffing.pdf",
+        vikram,
+        extras=[
+            visible_block(
+                "Keywords", [stuffing.strip()] + ["Python Docker AWS FastAPI PostgreSQL expert"] * 3
+            )
+        ],
+    )
+    pdf("07_meera_iyer_unrelated.pdf", UNRELATED)
+    ananya = _person(
+        "ANANYA JOSHI",
+        "Software Developer",
+        PARTIAL_BULLETS[8:12] + FIT_BULLETS[12:14],
+        [("Skills", "Java, Spring Boot, Flutter, Figma")],
+        "+91 90040 50607",
+    )
+    files["08_ananya_joshi_hidden_word_text.docx"] = render_docx(
+        out / "08_ananya_joshi_hidden_word_text.docx",
+        ananya,
+        [docx_hidden_run(" ".join(jd_lines[:10]) + " " + JD_KEYWORDS_BLOB, vanish=True)],
+    )
+    arjun = _person(
+        "ARJUN PATIL",
+        "Backend Developer",
+        [FIT_BULLETS[1], jd_lines[0], jd_lines[1], FIT_BULLETS[16], jd_lines[3], FIT_BULLETS[18]],
+        py_skills,
+        "+91 93700 80901",
+    )
+    pdf("09_arjun_patil_copied_jd_lines.pdf", arjun)
+    divya = _person("DIVYA SINGH", "Backend Developer", FIT_BULLETS[4:10], py_skills, "+91 91580 24680")
+    files["10_divya_singh_scanned.pdf"] = render_scanned(out / "10_divya_singh_scanned.pdf", divya)
+    nikhil = _person(
+        "NIKHIL DESHMUKH",
+        "Python Engineer",
+        FIT_BULLETS[18:22] + FIT_BULLETS[5:7],
+        py_skills,
+        "+91 95270 13579",
+    )
+    pdf("11_nikhil_deshmukh_javascript.pdf", nikhil)
+    add_javascript(files["11_nikhil_deshmukh_javascript.pdf"])
+    return files
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--out", type=Path, default=BACKEND.parent / "samples" / "fixtures")
     parser.add_argument(
         "--calibration", action="store_true", help="generate the labelled calibration set instead"
     )
+    parser.add_argument("--demo", action="store_true", help="generate the curated demo set instead")
     parser.add_argument("-n", type=int, default=40)
     args = parser.parse_args(argv)
-    if args.calibration:
+    if args.demo:
+        files = generate_demo(args.out)
+        print(f"{len(files)} demo resumes written to {args.out}")
+    elif args.calibration:
         generate_calibration(args.out, args.n)
         print(f"calibration set written to {args.out}")
     else:

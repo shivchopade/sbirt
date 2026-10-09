@@ -1,0 +1,336 @@
+{
+  "device": "mps",
+  "model": "sentence-transformers/all-MiniLM-L6-v2",
+  "stages_ms": {
+    "validate": 3.1,
+    "extract": 15.0,
+    "visibility": 20.3,
+    "preprocess": 62.8,
+    "score": 88.6,
+    "detect": 17.6,
+    "decide": 0.1
+  },
+  "rows": [
+    {
+      "file": "01_aarav_sharma_strong_fit.pdf",
+      "status": "DONE",
+      "clean": 71.06,
+      "raw": 71.06,
+      "delta": 0.0,
+      "risk": 0,
+      "risk_level": null,
+      "decision": "SHORTLISTED",
+      "flags": [],
+      "timings_ms": {
+        "validate": 25.8,
+        "extract": 38.0,
+        "visibility": 38.3,
+        "preprocess": 73.4,
+        "score": 56.8,
+        "detect": 44.8,
+        "decide": 0.1,
+        "total": 277.2
+      },
+      "pages": 1
+    },
+    {
+      "file": "02_rohan_verma_tailored.pdf",
+      "status": "DONE",
+      "clean": 67.06,
+      "raw": 67.06,
+      "delta": 0.0,
+      "risk": 0,
+      "risk_level": null,
+      "decision": "NEEDS_REVIEW",
+      "flags": [],
+      "timings_ms": {
+        "validate": 0.3,
+        "extract": 14.0,
+        "visibility": 27.2,
+        "preprocess": 43.6,
+        "score": 57.3,
+        "detect": 12.9,
+        "decide": 0.1,
+        "total": 155.4
+      },
+      "pages": 1
+    },
+    {
+      "file": "03_priya_nair_dark_sidebar.pdf",
+      "status": "DONE",
+      "clean": 60.75,
+      "raw": 60.75,
+      "delta": 0.0,
+      "risk": 0,
+      "risk_level": null,
+      "decision": "NEEDS_REVIEW",
+      "flags": [],
+      "timings_ms": {
+        "validate": 0.3,
+        "extract": 12.2,
+        "visibility": 20.2,
+        "preprocess": 33.6,
+        "score": 505.2,
+        "detect": 14.6,
+        "decide": 0.1,
+        "total": 586.2
+      },
+      "pages": 1
+    },
+    {
+      "file": "04_karan_mehta_white_text_jd.pdf",
+      "status": "DONE",
+      "clean": 23.52,
+      "raw": 97.05,
+      "delta": 73.53,
+      "risk": 100,
+      "risk_level": "critical",
+      "decision": "FLAGGED",
+      "flags": [
+        {
+          "code": "LOW_CONTRAST",
+          "severity": "critical"
+        },
+        {
+          "code": "JD_BULK_COPY",
+          "severity": "critical"
+        },
+        {
+          "code": "SCORE_INFLATION_ATTEMPT",
+          "severity": "high"
+        },
+        {
+          "code": "VERBATIM_JD_LINE",
+          "severity": "high"
+        }
+      ],
+      "timings_ms": {
+        "validate": 0.3,
+        "extract": 18.2,
+        "visibility": 26.2,
+        "preprocess": 73.5,
+        "score": 50.0,
+        "detect": 13.2,
+        "decide": 0.1,
+        "total": 181.5
+      },
+      "pages": 1
+    },
+    {
+      "file": "05_sneha_kulkarni_prompt_injection.pdf",
+      "status": "DONE",
+      "clean": 59.62,
+      "raw": 58.55,
+      "delta": 0.0,
+      "risk": 65,
+      "risk_level": "critical",
+      "decision": "FLAGGED",
+      "flags": [
+        {
+          "code": "PROMPT_INJECTION",
+          "severity": "critical"
+        },
+        {
+          "code": "LOW_CONTRAST",
+          "severity": "high"
+        }
+      ],
+      "timings_ms": {
+        "validate": 0.4,
+        "extract": 10.8,
+        "visibility": 19.1,
+        "preprocess": 38.5,
+        "score": 34.6,
+        "detect": 12.9,
+        "decide": 0.1,
+        "total": 116.4
+      },
+      "pages": 1
+    },
+    {
+      "file": "06_vikram_rao_keyword_stuffing.pdf",
+      "status": "DONE",
+      "clean": 59.89,
+      "raw": 59.89,
+      "delta": 0.0,
+      "risk": 23,
+      "risk_level": "medium",
+      "decision": "NOT_SHORTLISTED",
+      "flags": [
+        {
+          "code": "KEYWORD_STUFFING",
+          "severity": "medium"
+        },
+        {
+          "code": "KEYWORD_DUMP",
+          "severity": "medium"
+        },
+        {
+          "code": "REPEATED_CONTENT",
+          "severity": "low"
+        }
+      ],
+      "timings_ms": {
+        "validate": 0.3,
+        "extract": 11.3,
+        "visibility": 22.6,
+        "preprocess": 228.4,
+        "score": 88.4,
+        "detect": 13.2,
+        "decide": 0.1,
+        "total": 364.3
+      },
+      "pages": 1
+    },
+    {
+      "file": "07_meera_iyer_unrelated.pdf",
+      "status": "DONE",
+      "clean": 4.79,
+      "raw": 4.79,
+      "delta": 0.0,
+      "risk": 0,
+      "risk_level": null,
+      "decision": "NOT_SHORTLISTED",
+      "flags": [],
+      "timings_ms": {
+        "validate": 0.5,
+        "extract": 9.1,
+        "visibility": 15.9,
+        "preprocess": 28.1,
+        "score": 31.2,
+        "detect": 16.6,
+        "decide": 0.0,
+        "total": 101.4
+      },
+      "pages": 1
+    },
+    {
+      "file": "08_ananya_joshi_hidden_word_text.docx",
+      "status": "DONE",
+      "clean": 18.59,
+      "raw": 94.39,
+      "delta": 75.8,
+      "risk": 100,
+      "risk_level": "critical",
+      "decision": "FLAGGED",
+      "flags": [
+        {
+          "code": "DOCX_HIDDEN",
+          "severity": "critical"
+        },
+        {
+          "code": "SCORE_INFLATION_ATTEMPT",
+          "severity": "high"
+        },
+        {
+          "code": "VERBATIM_JD_LINE",
+          "severity": "high"
+        },
+        {
+          "code": "JD_BULK_COPY",
+          "severity": "high"
+        }
+      ],
+      "timings_ms": {
+        "validate": 1.9,
+        "extract": 17.2,
+        "visibility": 0.0,
+        "preprocess": 51.7,
+        "score": 29.0,
+        "detect": 19.3,
+        "decide": 0.1,
+        "total": 119.2
+      },
+      "pages": 1
+    },
+    {
+      "file": "09_arjun_patil_copied_jd_lines.pdf",
+      "status": "DONE",
+      "clean": 59.22,
+      "raw": 71.72,
+      "delta": 12.5,
+      "risk": 75,
+      "risk_level": "high",
+      "decision": "NOT_SHORTLISTED",
+      "flags": [
+        {
+          "code": "SCORE_INFLATION_ATTEMPT",
+          "severity": "high"
+        },
+        {
+          "code": "VERBATIM_JD_LINE",
+          "severity": "high"
+        },
+        {
+          "code": "JD_BULK_COPY",
+          "severity": "high"
+        }
+      ],
+      "timings_ms": {
+        "validate": 0.4,
+        "extract": 9.8,
+        "visibility": 16.2,
+        "preprocess": 27.1,
+        "score": 13.9,
+        "detect": 13.7,
+        "decide": 0.1,
+        "total": 81.2
+      },
+      "pages": 1
+    },
+    {
+      "file": "10_divya_singh_scanned.pdf",
+      "status": "UNPARSEABLE",
+      "clean": 0.0,
+      "raw": 0.0,
+      "delta": 0.0,
+      "risk": 3,
+      "risk_level": "low",
+      "decision": "NEEDS_REVIEW",
+      "flags": [
+        {
+          "code": "SCANNED_DOCUMENT",
+          "severity": "low"
+        }
+      ],
+      "timings_ms": {
+        "validate": 0.4,
+        "extract": 25.5,
+        "visibility": 0.0,
+        "preprocess": 0.6,
+        "score": 0.1,
+        "detect": 4.9,
+        "decide": 0.0,
+        "total": 31.5
+      },
+      "pages": 1
+    },
+    {
+      "file": "11_nikhil_deshmukh_javascript.pdf",
+      "status": "DONE",
+      "clean": 57.17,
+      "raw": 57.17,
+      "delta": 0.0,
+      "risk": 40,
+      "risk_level": "critical",
+      "decision": "FLAGGED",
+      "flags": [
+        {
+          "code": "MALICIOUS_PDF_FEATURES",
+          "severity": "critical"
+        }
+      ],
+      "timings_ms": {
+        "validate": 0.3,
+        "extract": 9.1,
+        "visibility": 17.1,
+        "preprocess": 29.9,
+        "score": 19.4,
+        "detect": 14.3,
+        "decide": 0.0,
+        "total": 90.1
+      },
+      "pages": 1
+    }
+  ]
+}

@@ -1,0 +1,478 @@
+{
+  "model": "sentence-transformers/all-mpnet-base-v2",
+  "sbert_input": "natural",
+  "device": "mps",
+  "metrics": {
+    "n": 40,
+    "n_fit": 20,
+    "n_not_fit": 20,
+    "mean_fit": 59.08,
+    "mean_not_fit": 20.23,
+    "separation": 38.85,
+    "auc": 0.9825,
+    "thresholds": [
+      {
+        "threshold": 50,
+        "tp": 17,
+        "fp": 0,
+        "fn": 3,
+        "tn": 20,
+        "precision": 1.0,
+        "recall": 0.85,
+        "f1": 0.919,
+        "accuracy": 0.925
+      },
+      {
+        "threshold": 55,
+        "tp": 16,
+        "fp": 0,
+        "fn": 4,
+        "tn": 20,
+        "precision": 1.0,
+        "recall": 0.8,
+        "f1": 0.889,
+        "accuracy": 0.9
+      },
+      {
+        "threshold": 60,
+        "tp": 13,
+        "fp": 0,
+        "fn": 7,
+        "tn": 20,
+        "precision": 1.0,
+        "recall": 0.65,
+        "f1": 0.788,
+        "accuracy": 0.825
+      },
+      {
+        "threshold": 65,
+        "tp": 4,
+        "fp": 0,
+        "fn": 16,
+        "tn": 20,
+        "precision": 1.0,
+        "recall": 0.2,
+        "f1": 0.333,
+        "accuracy": 0.6
+      },
+      {
+        "threshold": 70,
+        "tp": 0,
+        "fp": 0,
+        "fn": 20,
+        "tn": 20,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "accuracy": 0.5
+      },
+      {
+        "threshold": 75,
+        "tp": 0,
+        "fp": 0,
+        "fn": 20,
+        "tn": 20,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "accuracy": 0.5
+      },
+      {
+        "threshold": 80,
+        "tp": 0,
+        "fp": 0,
+        "fn": 20,
+        "tn": 20,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "accuracy": 0.5
+      },
+      {
+        "threshold": 85,
+        "tp": 0,
+        "fp": 0,
+        "fn": 20,
+        "tn": 20,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "accuracy": 0.5
+      }
+    ],
+    "best": {
+      "threshold": 50,
+      "tp": 17,
+      "fp": 0,
+      "fn": 3,
+      "tn": 20,
+      "precision": 1.0,
+      "recall": 0.85,
+      "f1": 0.919,
+      "accuracy": 0.925
+    },
+    "mean_ms": 172.1
+  },
+  "rows": [
+    {
+      "file": "cand_00_fit.pdf",
+      "fit": true,
+      "clean": 63.39,
+      "raw": 63.39,
+      "decision": "NEEDS_REVIEW",
+      "flags": [],
+      "ms": 800.4
+    },
+    {
+      "file": "cand_01_fit.pdf",
+      "fit": true,
+      "clean": 64.19,
+      "raw": 64.19,
+      "decision": "NEEDS_REVIEW",
+      "flags": [],
+      "ms": 196.6
+    },
+    {
+      "file": "cand_02_fit.pdf",
+      "fit": true,
+      "clean": 64.3,
+      "raw": 64.3,
+      "decision": "NEEDS_REVIEW",
+      "flags": [],
+      "ms": 201.0
+    },
+    {
+      "file": "cand_03_fit.pdf",
+      "fit": true,
+      "clean": 64.22,
+      "raw": 64.22,
+      "decision": "NEEDS_REVIEW",
+      "flags": [],
+      "ms": 534.9
+    },
+    {
+      "file": "cand_04_fit.pdf",
+      "fit": true,
+      "clean": 61.6,
+      "raw": 61.6,
+      "decision": "NEEDS_REVIEW",
+      "flags": [],
+      "ms": 166.1
+    },
+    {
+      "file": "cand_05_fit.pdf",
+      "fit": true,
+      "clean": 59.11,
+      "raw": 59.11,
+      "decision": "NOT_SHORTLISTED",
+      "flags": [],
+      "ms": 126.6
+    },
+    {
+      "file": "cand_06_fit.pdf",
+      "fit": true,
+      "clean": 66.99,
+      "raw": 66.99,
+      "decision": "NEEDS_REVIEW",
+      "flags": [],
+      "ms": 116.4
+    },
+    {
+      "file": "cand_07_fit.pdf",
+      "fit": true,
+      "clean": 61.86,
+      "raw": 61.86,
+      "decision": "NEEDS_REVIEW",
+      "flags": [],
+      "ms": 459.8
+    },
+    {
+      "file": "cand_08_fit.pdf",
+      "fit": true,
+      "clean": 60.89,
+      "raw": 60.89,
+      "decision": "NEEDS_REVIEW",
+      "flags": [],
+      "ms": 333.4
+    },
+    {
+      "file": "cand_09_fit.pdf",
+      "fit": true,
+      "clean": 64.71,
+      "raw": 64.71,
+      "decision": "NEEDS_REVIEW",
+      "flags": [],
+      "ms": 146.2
+    },
+    {
+      "file": "cand_10_fit.pdf",
+      "fit": true,
+      "clean": 67.79,
+      "raw": 67.79,
+      "decision": "NEEDS_REVIEW",
+      "flags": [],
+      "ms": 165.2
+    },
+    {
+      "file": "cand_11_fit.pdf",
+      "fit": true,
+      "clean": 59.74,
+      "raw": 59.74,
+      "decision": "NOT_SHORTLISTED",
+      "flags": [],
+      "ms": 101.0
+    },
+    {
+      "file": "cand_12_fit.pdf",
+      "fit": true,
+      "clean": 67.59,
+      "raw": 67.59,
+      "decision": "NEEDS_REVIEW",
+      "flags": [],
+      "ms": 106.7
+    },
+    {
+      "file": "cand_13_fit.pdf",
+      "fit": true,
+      "clean": 55.21,
+      "raw": 55.21,
+      "decision": "NOT_SHORTLISTED",
+      "flags": [],
+      "ms": 111.6
+    },
+    {
+      "file": "cand_14_fit.pdf",
+      "fit": true,
+      "clean": 63.25,
+      "raw": 63.25,
+      "decision": "NEEDS_REVIEW",
+      "flags": [],
+      "ms": 94.5
+    },
+    {
+      "file": "cand_15_fit.pdf",
+      "fit": true,
+      "clean": 67.37,
+      "raw": 67.37,
+      "decision": "NEEDS_REVIEW",
+      "flags": [],
+      "ms": 111.8
+    },
+    {
+      "file": "cand_16_borderline.pdf",
+      "fit": true,
+      "clean": 38.66,
+      "raw": 38.66,
+      "decision": "NOT_SHORTLISTED",
+      "flags": [],
+      "ms": 218.4
+    },
+    {
+      "file": "cand_17_borderline.pdf",
+      "fit": false,
+      "clean": 45.46,
+      "raw": 45.46,
+      "decision": "NOT_SHORTLISTED",
+      "flags": [],
+      "ms": 210.3
+    },
+    {
+      "file": "cand_18_borderline.pdf",
+      "fit": true,
+      "clean": 45.25,
+      "raw": 45.25,
+      "decision": "NOT_SHORTLISTED",
+      "flags": [],
+      "ms": 107.3
+    },
+    {
+      "file": "cand_19_borderline.pdf",
+      "fit": false,
+      "clean": 44.11,
+      "raw": 44.11,
+      "decision": "NOT_SHORTLISTED",
+      "flags": [],
+      "ms": 96.6
+    },
+    {
+      "file": "cand_20_borderline.pdf",
+      "fit": true,
+      "clean": 34.74,
+      "raw": 34.74,
+      "decision": "NOT_SHORTLISTED",
+      "flags": [],
+      "ms": 196.6
+    },
+    {
+      "file": "cand_21_borderline.pdf",
+      "fit": false,
+      "clean": 44.92,
+      "raw": 44.92,
+      "decision": "NOT_SHORTLISTED",
+      "flags": [],
+      "ms": 99.8
+    },
+    {
+      "file": "cand_22_borderline.pdf",
+      "fit": true,
+      "clean": 50.73,
+      "raw": 50.73,
+      "decision": "NOT_SHORTLISTED",
+      "flags": [],
+      "ms": 100.8
+    },
+    {
+      "file": "cand_23_borderline.pdf",
+      "fit": false,
+      "clean": 32.59,
+      "raw": 32.59,
+      "decision": "NOT_SHORTLISTED",
+      "flags": [],
+      "ms": 108.8
+    },
+    {
+      "file": "cand_24_unfit.pdf",
+      "fit": false,
+      "clean": 9.06,
+      "raw": 9.06,
+      "decision": "NOT_SHORTLISTED",
+      "flags": [],
+      "ms": 269.1
+    },
+    {
+      "file": "cand_25_unfit.pdf",
+      "fit": false,
+      "clean": 15.24,
+      "raw": 15.24,
+      "decision": "NOT_SHORTLISTED",
+      "flags": [],
+      "ms": 97.4
+    },
+    {
+      "file": "cand_26_unfit.pdf",
+      "fit": false,
+      "clean": 18.83,
+      "raw": 18.83,
+      "decision": "NOT_SHORTLISTED",
+      "flags": [],
+      "ms": 202.7
+    },
+    {
+      "file": "cand_27_unfit.pdf",
+      "fit": false,
+      "clean": 11.43,
+      "raw": 11.43,
+      "decision": "NOT_SHORTLISTED",
+      "flags": [],
+      "ms": 98.6
+    },
+    {
+      "file": "cand_28_unfit.pdf",
+      "fit": false,
+      "clean": 17.65,
+      "raw": 17.65,
+      "decision": "NOT_SHORTLISTED",
+      "flags": [],
+      "ms": 103.0
+    },
+    {
+      "file": "cand_29_unfit.pdf",
+      "fit": false,
+      "clean": 15.43,
+      "raw": 15.43,
+      "decision": "NOT_SHORTLISTED",
+      "flags": [],
+      "ms": 107.1
+    },
+    {
+      "file": "cand_30_unfit.pdf",
+      "fit": false,
+      "clean": 21.86,
+      "raw": 21.86,
+      "decision": "NOT_SHORTLISTED",
+      "flags": [],
+      "ms": 105.1
+    },
+    {
+      "file": "cand_31_unfit.pdf",
+      "fit": false,
+      "clean": 13.11,
+      "raw": 13.11,
+      "decision": "NOT_SHORTLISTED",
+      "flags": [],
+      "ms": 102.8
+    },
+    {
+      "file": "cand_32_unfit.pdf",
+      "fit": false,
+      "clean": 15.36,
+      "raw": 15.36,
+      "decision": "NOT_SHORTLISTED",
+      "flags": [],
+      "ms": 103.8
+    },
+    {
+      "file": "cand_33_unfit.pdf",
+      "fit": false,
+      "clean": 9.75,
+      "raw": 9.75,
+      "decision": "NOT_SHORTLISTED",
+      "flags": [],
+      "ms": 124.8
+    },
+    {
+      "file": "cand_34_unfit.pdf",
+      "fit": false,
+      "clean": 15.98,
+      "raw": 15.98,
+      "decision": "NOT_SHORTLISTED",
+      "flags": [],
+      "ms": 106.3
+    },
+    {
+      "file": "cand_35_unfit.pdf",
+      "fit": false,
+      "clean": 17.45,
+      "raw": 17.45,
+      "decision": "NOT_SHORTLISTED",
+      "flags": [],
+      "ms": 118.3
+    },
+    {
+      "file": "cand_36_unfit.pdf",
+      "fit": false,
+      "clean": 14.34,
+      "raw": 14.34,
+      "decision": "NOT_SHORTLISTED",
+      "flags": [],
+      "ms": 108.7
+    },
+    {
+      "file": "cand_37_unfit.pdf",
+      "fit": false,
+      "clean": 11.91,
+      "raw": 11.91,
+      "decision": "NOT_SHORTLISTED",
+      "flags": [],
+      "ms": 108.2
+    },
+    {
+      "file": "cand_38_unfit.pdf",
+      "fit": false,
+      "clean": 12.79,
+      "raw": 12.79,
+      "decision": "NOT_SHORTLISTED",
+      "flags": [],
+      "ms": 110.7
+    },
+    {
+      "file": "cand_39_unfit.pdf",
+      "fit": false,
+      "clean": 17.34,
+      "raw": 17.34,
+      "decision": "NOT_SHORTLISTED",
+      "flags": [],
+      "ms": 106.0
+    }
+  ]
+}

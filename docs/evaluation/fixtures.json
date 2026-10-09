@@ -1,0 +1,1091 @@
+{
+  "device": "mps",
+  "model": "sentence-transformers/all-MiniLM-L6-v2",
+  "stages_ms": {
+    "validate": 1.0,
+    "extract": 24.1,
+    "visibility": 30.9,
+    "preprocess": 68.4,
+    "score": 27.9,
+    "detect": 11.5,
+    "decide": 0.1
+  },
+  "rows": [
+    {
+      "file": "behind_image.pdf",
+      "status": "DONE",
+      "clean": 71.06,
+      "raw": 78.76,
+      "delta": 7.7,
+      "risk": 40,
+      "risk_level": "critical",
+      "decision": "FLAGGED",
+      "flags": [
+        {
+          "code": "COVERED",
+          "severity": "critical"
+        }
+      ],
+      "timings_ms": {
+        "validate": 21.2,
+        "extract": 41.6,
+        "visibility": 50.5,
+        "preprocess": 87.9,
+        "score": 58.5,
+        "detect": 50.9,
+        "decide": 0.1,
+        "total": 310.7
+      },
+      "pages": 1
+    },
+    {
+      "file": "clean.docx",
+      "status": "DONE",
+      "clean": 71.06,
+      "raw": 71.06,
+      "delta": 0.0,
+      "risk": 0,
+      "risk_level": null,
+      "decision": "SHORTLISTED",
+      "flags": [],
+      "timings_ms": {
+        "validate": 1.5,
+        "extract": 17.0,
+        "visibility": 0.0,
+        "preprocess": 55.1,
+        "score": 0.6,
+        "detect": 9.0,
+        "decide": 0.1,
+        "total": 83.3
+      },
+      "pages": 1
+    },
+    {
+      "file": "clean.pdf",
+      "status": "DONE",
+      "clean": 71.06,
+      "raw": 71.06,
+      "delta": 0.0,
+      "risk": 0,
+      "risk_level": null,
+      "decision": "SHORTLISTED",
+      "flags": [],
+      "timings_ms": {
+        "validate": 0.4,
+        "extract": 17.7,
+        "visibility": 36.2,
+        "preprocess": 57.3,
+        "score": 1.0,
+        "detect": 9.6,
+        "decide": 0.1,
+        "total": 122.3
+      },
+      "pages": 1
+    },
+    {
+      "file": "clipped_text.pdf",
+      "status": "DONE",
+      "clean": 71.06,
+      "raw": 74.14,
+      "delta": 3.08,
+      "risk": 90,
+      "risk_level": "critical",
+      "decision": "FLAGGED",
+      "flags": [
+        {
+          "code": "NOT_RENDERED_VISIBLY",
+          "severity": "critical"
+        },
+        {
+          "code": "VERBATIM_JD_LINE",
+          "severity": "high"
+        },
+        {
+          "code": "JD_BULK_COPY",
+          "severity": "high"
+        }
+      ],
+      "timings_ms": {
+        "validate": 0.5,
+        "extract": 22.0,
+        "visibility": 41.3,
+        "preprocess": 64.7,
+        "score": 0.6,
+        "detect": 8.6,
+        "decide": 0.1,
+        "total": 137.8
+      },
+      "pages": 1
+    },
+    {
+      "file": "comment_stuffing.docx",
+      "status": "DONE",
+      "clean": 71.06,
+      "raw": 71.06,
+      "delta": 0.0,
+      "risk": 90,
+      "risk_level": "critical",
+      "decision": "FLAGGED",
+      "flags": [
+        {
+          "code": "DOCX_HIDDEN",
+          "severity": "critical"
+        },
+        {
+          "code": "VERBATIM_JD_LINE",
+          "severity": "high"
+        },
+        {
+          "code": "JD_BULK_COPY",
+          "severity": "high"
+        }
+      ],
+      "timings_ms": {
+        "validate": 0.2,
+        "extract": 7.9,
+        "visibility": 0.0,
+        "preprocess": 84.6,
+        "score": 0.5,
+        "detect": 25.4,
+        "decide": 0.1,
+        "total": 118.7
+      },
+      "pages": 1
+    },
+    {
+      "file": "dark_sidebar_legit.pdf",
+      "status": "DONE",
+      "clean": 70.33,
+      "raw": 70.33,
+      "delta": 0.0,
+      "risk": 0,
+      "risk_level": null,
+      "decision": "SHORTLISTED",
+      "flags": [],
+      "timings_ms": {
+        "validate": 0.5,
+        "extract": 213.8,
+        "visibility": 51.7,
+        "preprocess": 63.7,
+        "score": 24.6,
+        "detect": 7.9,
+        "decide": 0.1,
+        "total": 362.3
+      },
+      "pages": 1
+    },
+    {
+      "file": "encrypted.pdf",
+      "status": "UNPARSEABLE",
+      "clean": null,
+      "raw": null,
+      "delta": null,
+      "risk": 10,
+      "risk_level": "medium",
+      "decision": "NEEDS_REVIEW",
+      "flags": [
+        {
+          "code": "ENCRYPTED_FILE",
+          "severity": "medium"
+        }
+      ],
+      "timings_ms": {
+        "validate": 0.2,
+        "total": 0.2
+      },
+      "pages": null
+    },
+    {
+      "file": "hidden_layer.pdf",
+      "status": "DONE",
+      "clean": 71.06,
+      "raw": 99.53,
+      "delta": 28.47,
+      "risk": 100,
+      "risk_level": "critical",
+      "decision": "FLAGGED",
+      "flags": [
+        {
+          "code": "HIDDEN_LAYER",
+          "severity": "critical"
+        },
+        {
+          "code": "SCORE_INFLATION_ATTEMPT",
+          "severity": "high"
+        },
+        {
+          "code": "VERBATIM_JD_LINE",
+          "severity": "high"
+        },
+        {
+          "code": "JD_BULK_COPY",
+          "severity": "high"
+        }
+      ],
+      "timings_ms": {
+        "validate": 0.4,
+        "extract": 39.1,
+        "visibility": 33.4,
+        "preprocess": 74.8,
+        "score": 1.6,
+        "detect": 8.9,
+        "decide": 0.1,
+        "total": 158.3
+      },
+      "pages": 1
+    },
+    {
+      "file": "hidden_vanish.docx",
+      "status": "DONE",
+      "clean": 71.06,
+      "raw": 99.53,
+      "delta": 28.47,
+      "risk": 100,
+      "risk_level": "critical",
+      "decision": "FLAGGED",
+      "flags": [
+        {
+          "code": "DOCX_HIDDEN",
+          "severity": "critical"
+        },
+        {
+          "code": "SCORE_INFLATION_ATTEMPT",
+          "severity": "high"
+        },
+        {
+          "code": "VERBATIM_JD_LINE",
+          "severity": "high"
+        },
+        {
+          "code": "JD_BULK_COPY",
+          "severity": "high"
+        }
+      ],
+      "timings_ms": {
+        "validate": 0.3,
+        "extract": 6.8,
+        "visibility": 0.0,
+        "preprocess": 74.8,
+        "score": 0.6,
+        "detect": 8.7,
+        "decide": 0.1,
+        "total": 91.3
+      },
+      "pages": 1
+    },
+    {
+      "file": "homoglyph.pdf",
+      "status": "DONE",
+      "clean": 71.06,
+      "raw": 71.06,
+      "delta": 0.0,
+      "risk": 25,
+      "risk_level": "high",
+      "decision": "NEEDS_REVIEW",
+      "flags": [
+        {
+          "code": "HOMOGLYPHS",
+          "severity": "high"
+        }
+      ],
+      "timings_ms": {
+        "validate": 0.5,
+        "extract": 15.2,
+        "visibility": 28.9,
+        "preprocess": 49.4,
+        "score": 0.5,
+        "detect": 8.2,
+        "decide": 0.1,
+        "total": 102.8
+      },
+      "pages": 1
+    },
+    {
+      "file": "image_header_legit.pdf",
+      "status": "DONE",
+      "clean": 70.89,
+      "raw": 70.89,
+      "delta": 0.0,
+      "risk": 0,
+      "risk_level": null,
+      "decision": "SHORTLISTED",
+      "flags": [],
+      "timings_ms": {
+        "validate": 0.4,
+        "extract": 19.4,
+        "visibility": 33.4,
+        "preprocess": 49.2,
+        "score": 0.5,
+        "detect": 24.2,
+        "decide": 0.1,
+        "total": 127.2
+      },
+      "pages": 1
+    },
+    {
+      "file": "injection_paraphrase.pdf",
+      "status": "DONE",
+      "clean": 71.06,
+      "raw": 70.99,
+      "delta": 0.0,
+      "risk": 50,
+      "risk_level": "high",
+      "decision": "NEEDS_REVIEW",
+      "flags": [
+        {
+          "code": "LOW_CONTRAST",
+          "severity": "high"
+        },
+        {
+          "code": "PROMPT_INJECTION_PARAPHRASE",
+          "severity": "high"
+        }
+      ],
+      "timings_ms": {
+        "validate": 0.3,
+        "extract": 17.1,
+        "visibility": 34.1,
+        "preprocess": 57.4,
+        "score": 9.8,
+        "detect": 9.0,
+        "decide": 0.1,
+        "total": 127.8
+      },
+      "pages": 1
+    },
+    {
+      "file": "javascript.pdf",
+      "status": "DONE",
+      "clean": 71.06,
+      "raw": 71.06,
+      "delta": 0.0,
+      "risk": 40,
+      "risk_level": "critical",
+      "decision": "FLAGGED",
+      "flags": [
+        {
+          "code": "MALICIOUS_PDF_FEATURES",
+          "severity": "critical"
+        }
+      ],
+      "timings_ms": {
+        "validate": 0.4,
+        "extract": 18.2,
+        "visibility": 34.9,
+        "preprocess": 54.0,
+        "score": 0.7,
+        "detect": 8.2,
+        "decide": 0.1,
+        "total": 116.5
+      },
+      "pages": 1
+    },
+    {
+      "file": "jd_bulk_copy.pdf",
+      "status": "DONE",
+      "clean": 71.06,
+      "raw": 99.47,
+      "delta": 28.41,
+      "risk": 90,
+      "risk_level": "critical",
+      "decision": "FLAGGED",
+      "flags": [
+        {
+          "code": "JD_BULK_COPY",
+          "severity": "critical"
+        },
+        {
+          "code": "SCORE_INFLATION_ATTEMPT",
+          "severity": "high"
+        },
+        {
+          "code": "VERBATIM_JD_LINE",
+          "severity": "high"
+        }
+      ],
+      "timings_ms": {
+        "validate": 0.4,
+        "extract": 29.6,
+        "visibility": 53.9,
+        "preprocess": 73.9,
+        "score": 0.6,
+        "detect": 9.3,
+        "decide": 0.1,
+        "total": 167.8
+      },
+      "pages": 2
+    },
+    {
+      "file": "jd_voice_phrases.pdf",
+      "status": "DONE",
+      "clean": 71.07,
+      "raw": 71.07,
+      "delta": 0.0,
+      "risk": 10,
+      "risk_level": "medium",
+      "decision": "SHORTLISTED",
+      "flags": [
+        {
+          "code": "JD_VOICE_PHRASES",
+          "severity": "medium"
+        }
+      ],
+      "timings_ms": {
+        "validate": 0.4,
+        "extract": 16.4,
+        "visibility": 33.3,
+        "preprocess": 53.3,
+        "score": 10.0,
+        "detect": 7.4,
+        "decide": 0.1,
+        "total": 120.9
+      },
+      "pages": 1
+    },
+    {
+      "file": "keyword_stuffing.pdf",
+      "status": "DONE",
+      "clean": 71.18,
+      "raw": 71.18,
+      "delta": 0.0,
+      "risk": 23,
+      "risk_level": "medium",
+      "decision": "SHORTLISTED",
+      "flags": [
+        {
+          "code": "KEYWORD_STUFFING",
+          "severity": "medium"
+        },
+        {
+          "code": "KEYWORD_DUMP",
+          "severity": "medium"
+        },
+        {
+          "code": "REPEATED_CONTENT",
+          "severity": "low"
+        }
+      ],
+      "timings_ms": {
+        "validate": 0.3,
+        "extract": 18.6,
+        "visibility": 39.9,
+        "preprocess": 59.1,
+        "score": 21.1,
+        "detect": 7.7,
+        "decide": 0.1,
+        "total": 146.8
+      },
+      "pages": 1
+    },
+    {
+      "file": "low_opacity.pdf",
+      "status": "DONE",
+      "clean": 71.06,
+      "raw": 99.46,
+      "delta": 28.4,
+      "risk": 100,
+      "risk_level": "critical",
+      "decision": "FLAGGED",
+      "flags": [
+        {
+          "code": "LOW_OPACITY",
+          "severity": "critical"
+        },
+        {
+          "code": "SCORE_INFLATION_ATTEMPT",
+          "severity": "high"
+        },
+        {
+          "code": "VERBATIM_JD_LINE",
+          "severity": "high"
+        },
+        {
+          "code": "JD_BULK_COPY",
+          "severity": "high"
+        }
+      ],
+      "timings_ms": {
+        "validate": 0.3,
+        "extract": 20.6,
+        "visibility": 41.3,
+        "preprocess": 69.9,
+        "score": 0.7,
+        "detect": 8.4,
+        "decide": 0.1,
+        "total": 141.3
+      },
+      "pages": 1
+    },
+    {
+      "file": "metadata_stuffing.pdf",
+      "status": "DONE",
+      "clean": 71.06,
+      "raw": 71.06,
+      "delta": 0.0,
+      "risk": 10,
+      "risk_level": "medium",
+      "decision": "SHORTLISTED",
+      "flags": [
+        {
+          "code": "METADATA_STUFFING",
+          "severity": "medium"
+        }
+      ],
+      "timings_ms": {
+        "validate": 0.3,
+        "extract": 15.9,
+        "visibility": 32.1,
+        "preprocess": 49.2,
+        "score": 0.5,
+        "detect": 21.2,
+        "decide": 0.1,
+        "total": 119.3
+      },
+      "pages": 1
+    },
+    {
+      "file": "near_verbatim_jd.pdf",
+      "status": "DONE",
+      "clean": 72.0,
+      "raw": 72.0,
+      "delta": 0.0,
+      "risk": 10,
+      "risk_level": "medium",
+      "decision": "SHORTLISTED",
+      "flags": [
+        {
+          "code": "NEAR_VERBATIM_JD",
+          "severity": "medium"
+        }
+      ],
+      "timings_ms": {
+        "validate": 0.3,
+        "extract": 16.0,
+        "visibility": 32.4,
+        "preprocess": 49.0,
+        "score": 8.2,
+        "detect": 7.1,
+        "decide": 0.1,
+        "total": 113.1
+      },
+      "pages": 1
+    },
+    {
+      "file": "off_page.pdf",
+      "status": "DONE",
+      "clean": 71.06,
+      "raw": 99.68,
+      "delta": 28.62,
+      "risk": 100,
+      "risk_level": "critical",
+      "decision": "FLAGGED",
+      "flags": [
+        {
+          "code": "OFF_PAGE",
+          "severity": "critical"
+        },
+        {
+          "code": "SCORE_INFLATION_ATTEMPT",
+          "severity": "high"
+        },
+        {
+          "code": "VERBATIM_JD_LINE",
+          "severity": "high"
+        },
+        {
+          "code": "JD_BULK_COPY",
+          "severity": "high"
+        }
+      ],
+      "timings_ms": {
+        "validate": 0.3,
+        "extract": 20.6,
+        "visibility": 32.1,
+        "preprocess": 76.6,
+        "score": 14.0,
+        "detect": 9.0,
+        "decide": 0.1,
+        "total": 152.7
+      },
+      "pages": 1
+    },
+    {
+      "file": "prompt_injection_hidden.pdf",
+      "status": "DONE",
+      "clean": 71.06,
+      "raw": 70.64,
+      "delta": 0.0,
+      "risk": 65,
+      "risk_level": "critical",
+      "decision": "FLAGGED",
+      "flags": [
+        {
+          "code": "PROMPT_INJECTION",
+          "severity": "critical"
+        },
+        {
+          "code": "LOW_CONTRAST",
+          "severity": "high"
+        }
+      ],
+      "timings_ms": {
+        "validate": 0.3,
+        "extract": 17.2,
+        "visibility": 33.3,
+        "preprocess": 56.2,
+        "score": 11.3,
+        "detect": 7.5,
+        "decide": 0.1,
+        "total": 125.9
+      },
+      "pages": 1
+    },
+    {
+      "file": "render_mode_invisible.pdf",
+      "status": "DONE",
+      "clean": 71.06,
+      "raw": 99.46,
+      "delta": 28.4,
+      "risk": 100,
+      "risk_level": "critical",
+      "decision": "FLAGGED",
+      "flags": [
+        {
+          "code": "INVISIBLE_RENDER_MODE",
+          "severity": "critical"
+        },
+        {
+          "code": "SCORE_INFLATION_ATTEMPT",
+          "severity": "high"
+        },
+        {
+          "code": "VERBATIM_JD_LINE",
+          "severity": "high"
+        },
+        {
+          "code": "JD_BULK_COPY",
+          "severity": "high"
+        }
+      ],
+      "timings_ms": {
+        "validate": 0.3,
+        "extract": 20.1,
+        "visibility": 42.9,
+        "preprocess": 72.0,
+        "score": 0.6,
+        "detect": 8.2,
+        "decide": 0.1,
+        "total": 144.2
+      },
+      "pages": 1
+    },
+    {
+      "file": "same_color_box.pdf",
+      "status": "DONE",
+      "clean": 71.06,
+      "raw": 75.7,
+      "delta": 4.64,
+      "risk": 40,
+      "risk_level": "critical",
+      "decision": "FLAGGED",
+      "flags": [
+        {
+          "code": "LOW_CONTRAST",
+          "severity": "critical"
+        }
+      ],
+      "timings_ms": {
+        "validate": 0.3,
+        "extract": 17.7,
+        "visibility": 42.2,
+        "preprocess": 56.1,
+        "score": 9.7,
+        "detect": 7.5,
+        "decide": 0.1,
+        "total": 133.6
+      },
+      "pages": 1
+    },
+    {
+      "file": "scanned_image_only.pdf",
+      "status": "UNPARSEABLE",
+      "clean": 0.0,
+      "raw": 0.0,
+      "delta": 0.0,
+      "risk": 3,
+      "risk_level": "low",
+      "decision": "NEEDS_REVIEW",
+      "flags": [
+        {
+          "code": "SCANNED_DOCUMENT",
+          "severity": "low"
+        }
+      ],
+      "timings_ms": {
+        "validate": 0.4,
+        "extract": 22.7,
+        "visibility": 0.0,
+        "preprocess": 0.6,
+        "score": 0.1,
+        "detect": 4.8,
+        "decide": 0.0,
+        "total": 28.6
+      },
+      "pages": 1
+    },
+    {
+      "file": "small_font_suspicious.pdf",
+      "status": "DONE",
+      "clean": 75.82,
+      "raw": 75.82,
+      "delta": 0.0,
+      "risk": 10,
+      "risk_level": "medium",
+      "decision": "SHORTLISTED",
+      "flags": [
+        {
+          "code": "TINY_FONT",
+          "severity": "medium"
+        }
+      ],
+      "timings_ms": {
+        "validate": 0.2,
+        "extract": 17.1,
+        "visibility": 33.7,
+        "preprocess": 51.9,
+        "score": 9.2,
+        "detect": 7.2,
+        "decide": 0.1,
+        "total": 119.4
+      },
+      "pages": 1
+    },
+    {
+      "file": "squeezed_text.pdf",
+      "status": "DONE",
+      "clean": 71.06,
+      "raw": 74.01,
+      "delta": 2.95,
+      "risk": 40,
+      "risk_level": "critical",
+      "decision": "FLAGGED",
+      "flags": [
+        {
+          "code": "TINY_FONT",
+          "severity": "critical"
+        }
+      ],
+      "timings_ms": {
+        "validate": 0.4,
+        "extract": 16.9,
+        "visibility": 32.5,
+        "preprocess": 51.7,
+        "score": 9.2,
+        "detect": 7.3,
+        "decide": 0.1,
+        "total": 118.1
+      },
+      "pages": 1
+    },
+    {
+      "file": "stacked_text.pdf",
+      "status": "DONE",
+      "clean": 71.09,
+      "raw": 74.52,
+      "delta": 3.43,
+      "risk": 40,
+      "risk_level": "critical",
+      "decision": "FLAGGED",
+      "flags": [
+        {
+          "code": "STACKED_TEXT",
+          "severity": "critical"
+        }
+      ],
+      "timings_ms": {
+        "validate": 0.6,
+        "extract": 17.1,
+        "visibility": 34.5,
+        "preprocess": 53.7,
+        "score": 12.4,
+        "detect": 8.6,
+        "decide": 0.1,
+        "total": 127.0
+      },
+      "pages": 1
+    },
+    {
+      "file": "tailored_legit.pdf",
+      "status": "DONE",
+      "clean": 67.06,
+      "raw": 67.06,
+      "delta": 0.0,
+      "risk": 0,
+      "risk_level": null,
+      "decision": "NEEDS_REVIEW",
+      "flags": [],
+      "timings_ms": {
+        "validate": 0.4,
+        "extract": 15.3,
+        "visibility": 29.2,
+        "preprocess": 52.1,
+        "score": 551.8,
+        "detect": 17.1,
+        "decide": 0.1,
+        "total": 666.0
+      },
+      "pages": 1
+    },
+    {
+      "file": "timeline_bad.pdf",
+      "status": "DONE",
+      "clean": 71.31,
+      "raw": 71.31,
+      "delta": 0.0,
+      "risk": 6,
+      "risk_level": "low",
+      "decision": "SHORTLISTED",
+      "flags": [
+        {
+          "code": "TIMELINE_INCONSISTENT",
+          "severity": "low"
+        },
+        {
+          "code": "TIMELINE_FUTURE_DATE",
+          "severity": "low"
+        }
+      ],
+      "timings_ms": {
+        "validate": 0.4,
+        "extract": 21.9,
+        "visibility": 36.9,
+        "preprocess": 58.9,
+        "score": 8.5,
+        "detect": 8.9,
+        "decide": 0.1,
+        "total": 135.6
+      },
+      "pages": 1
+    },
+    {
+      "file": "tiny_font.docx",
+      "status": "DONE",
+      "clean": 71.06,
+      "raw": 75.7,
+      "delta": 4.64,
+      "risk": 40,
+      "risk_level": "critical",
+      "decision": "FLAGGED",
+      "flags": [
+        {
+          "code": "DOCX_HIDDEN",
+          "severity": "critical"
+        }
+      ],
+      "timings_ms": {
+        "validate": 0.5,
+        "extract": 7.8,
+        "visibility": 0.0,
+        "preprocess": 61.8,
+        "score": 0.5,
+        "detect": 9.1,
+        "decide": 0.1,
+        "total": 79.8
+      },
+      "pages": 1
+    },
+    {
+      "file": "tiny_font.pdf",
+      "status": "DONE",
+      "clean": 71.06,
+      "raw": 77.73,
+      "delta": 6.67,
+      "risk": 90,
+      "risk_level": "critical",
+      "decision": "FLAGGED",
+      "flags": [
+        {
+          "code": "TINY_FONT",
+          "severity": "critical"
+        },
+        {
+          "code": "VERBATIM_JD_LINE",
+          "severity": "high"
+        },
+        {
+          "code": "JD_BULK_COPY",
+          "severity": "high"
+        }
+      ],
+      "timings_ms": {
+        "validate": 0.4,
+        "extract": 21.4,
+        "visibility": 36.6,
+        "preprocess": 66.6,
+        "score": 0.5,
+        "detect": 9.3,
+        "decide": 0.1,
+        "total": 134.9
+      },
+      "pages": 1
+    },
+    {
+      "file": "unrelated.pdf",
+      "status": "DONE",
+      "clean": 4.79,
+      "raw": 4.79,
+      "delta": 0.0,
+      "risk": 0,
+      "risk_level": null,
+      "decision": "NOT_SHORTLISTED",
+      "flags": [],
+      "timings_ms": {
+        "validate": 0.4,
+        "extract": 10.0,
+        "visibility": 17.5,
+        "preprocess": 31.5,
+        "score": 145.4,
+        "detect": 19.2,
+        "decide": 0.1,
+        "total": 224.1
+      },
+      "pages": 1
+    },
+    {
+      "file": "verbatim_jd_lines.pdf",
+      "status": "DONE",
+      "clean": 69.42,
+      "raw": 76.61,
+      "delta": 7.19,
+      "risk": 50,
+      "risk_level": "high",
+      "decision": "NEEDS_REVIEW",
+      "flags": [
+        {
+          "code": "VERBATIM_JD_LINE",
+          "severity": "high"
+        },
+        {
+          "code": "JD_BULK_COPY",
+          "severity": "high"
+        }
+      ],
+      "timings_ms": {
+        "validate": 0.3,
+        "extract": 15.3,
+        "visibility": 31.7,
+        "preprocess": 48.8,
+        "score": 0.5,
+        "detect": 7.6,
+        "decide": 0.1,
+        "total": 104.3
+      },
+      "pages": 1
+    },
+    {
+      "file": "white_text.docx",
+      "status": "DONE",
+      "clean": 71.06,
+      "raw": 99.46,
+      "delta": 28.4,
+      "risk": 100,
+      "risk_level": "critical",
+      "decision": "FLAGGED",
+      "flags": [
+        {
+          "code": "DOCX_HIDDEN",
+          "severity": "critical"
+        },
+        {
+          "code": "SCORE_INFLATION_ATTEMPT",
+          "severity": "high"
+        },
+        {
+          "code": "VERBATIM_JD_LINE",
+          "severity": "high"
+        },
+        {
+          "code": "JD_BULK_COPY",
+          "severity": "high"
+        }
+      ],
+      "timings_ms": {
+        "validate": 0.2,
+        "extract": 6.4,
+        "visibility": 0.0,
+        "preprocess": 72.2,
+        "score": 0.6,
+        "detect": 8.6,
+        "decide": 0.1,
+        "total": 88.1
+      },
+      "pages": 1
+    },
+    {
+      "file": "white_text_jd.pdf",
+      "status": "DONE",
+      "clean": 71.06,
+      "raw": 98.02,
+      "delta": 26.96,
+      "risk": 100,
+      "risk_level": "critical",
+      "decision": "FLAGGED",
+      "flags": [
+        {
+          "code": "LOW_CONTRAST",
+          "severity": "critical"
+        },
+        {
+          "code": "JD_BULK_COPY",
+          "severity": "critical"
+        },
+        {
+          "code": "SCORE_INFLATION_ATTEMPT",
+          "severity": "high"
+        },
+        {
+          "code": "VERBATIM_JD_LINE",
+          "severity": "high"
+        }
+      ],
+      "timings_ms": {
+        "validate": 0.3,
+        "extract": 24.7,
+        "visibility": 42.5,
+        "preprocess": 94.6,
+        "score": 32.6,
+        "detect": 9.0,
+        "decide": 0.1,
+        "total": 203.8
+      },
+      "pages": 1
+    },
+    {
+      "file": "zero_width.pdf",
+      "status": "DONE",
+      "clean": 71.06,
+      "raw": 71.06,
+      "delta": 0.0,
+      "risk": 25,
+      "risk_level": "high",
+      "decision": "NEEDS_REVIEW",
+      "flags": [
+        {
+          "code": "INVISIBLE_UNICODE",
+          "severity": "high"
+        }
+      ],
+      "timings_ms": {
+        "validate": 0.4,
+        "extract": 17.7,
+        "visibility": 29.4,
+        "preprocess": 292.9,
+        "score": 0.5,
+        "detect": 7.6,
+        "decide": 0.1,
+        "total": 348.6
+      },
+      "pages": 1
+    }
+  ]
+}

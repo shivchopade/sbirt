@@ -144,13 +144,28 @@ def test_compound_requirement_decomposition_never_hurts() -> None:
 
     units = [_unit(0, "Added unit tests"), _unit(1, "Reviewed pull requests")]
     unit_vecs = np.array([[1.0, 0.0, 0.0], [0.0, 1.0, 0.0]], dtype=np.float32)
-    req = Requirement(index=0, text="Write tests and review code", weight=1.0, section="r", kind="must", parts=["Write tests", "review code"])
+    req = Requirement(
+        index=0,
+        text="Write tests and review code",
+        weight=1.0,
+        section="r",
+        kind="must",
+        parts=["Write tests", "review code"],
+    )
     whole = np.array([[0.6, 0.6, 0.52]], dtype=np.float32)  # the whole sentence matches each line only partly
-    clauses = [np.array([[0.95, 0.1, 0.29], [0.1, 0.95, 0.29]], dtype=np.float32)]  # each clause matches one line well
-    _, matches = requirement_coverage([req], whole, units, unit_vecs, floor=0.25, ceiling=0.75, met_threshold=0.55, part_vectors=clauses)
+    clauses = [
+        np.array([[0.95, 0.1, 0.29], [0.1, 0.95, 0.29]], dtype=np.float32)
+    ]  # each clause matches one line well
+    _, matches = requirement_coverage(
+        [req], whole, units, unit_vecs, floor=0.25, ceiling=0.75, met_threshold=0.55, part_vectors=clauses
+    )
     m = matches[0]
     assert m.method == "clauses" and m.similarity == pytest.approx(0.95) and m.met
     assert m.best_resume_line == "Added unit tests | Reviewed pull requests" and len(m.parts) == 2
-    weak = [np.array([[0.3, 0.1, 0.9], [0.1, 0.3, 0.9]], dtype=np.float32)]  # clauses worse than the whole sentence
-    _, matches = requirement_coverage([req], whole, units, unit_vecs, floor=0.25, ceiling=0.75, met_threshold=0.55, part_vectors=weak)
+    weak = [
+        np.array([[0.3, 0.1, 0.9], [0.1, 0.3, 0.9]], dtype=np.float32)
+    ]  # clauses worse than the whole sentence
+    _, matches = requirement_coverage(
+        [req], whole, units, unit_vecs, floor=0.25, ceiling=0.75, met_threshold=0.55, part_vectors=weak
+    )
     assert matches[0].method == "whole" and matches[0].similarity == pytest.approx(0.6)
