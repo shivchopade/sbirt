@@ -90,6 +90,9 @@ def parse_jd(title: str, jd_text: str, nlp: NlpEngine, scoring: ScoringSettings)
         for i, (text, k, sec) in enumerate(candidates)
     ]
 
+    for req in requirements:
+        req.parts = nlp.clauses(req.text)
+
     analyses = nlp.analyze([r.text for r in requirements] + [title])
     skill_weights: dict[str, float] = {}
     keywords: set[str] = set()

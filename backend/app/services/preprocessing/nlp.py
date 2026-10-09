@@ -49,6 +49,40 @@ class NlpEngine:
             doc = self.nlp(text, disable=["ner", "lemmatizer", "tagger", "attribute_ruler"])
         return [s.text.strip() for s in doc.sents if s.text.strip()]
 
+    def clauses(self, text: str) -> list[str]:
+        """Split a compound requirement into clauses: "Write tests and take part in code reviews" → 2 parts.
+
+        Split at "and"/";" when the next word is a base-form verb and the left side already has an object noun, so
+        shared-object phrases ("design, build and maintain APIs") and noun lists ("Kubernetes and CI/CD") stay whole.
+        """
+        with self._lock:
+            doc = self.nlp(text, disable=["ner", "lemmatizer"])
+        cuts: list[int] = []
+        start = 0
+        for tok in doc:
+            nxt = doc[tok.i + 1] if tok.i + 1 < len(doc) else None
+            is_joint = tok.lower_ in ("and", ";") or (
+                tok.text == "," and nxt is not None and nxt.lower_ == "and"
+            )
+            if not is_joint or nxt is None:
+                continue
+            verb = doc[tok.i + 2] if (tok.text == "," and tok.i + 2 < len(doc)) else nxt
+            left = doc[start : tok.i]
+            has_object = any(t.pos_ in ("NOUN", "PROPN") for t in left[1:])
+            if verb.tag_ == "VB" and has_object and len(left) >= 2:
+                cuts.append(tok.i)
+                start = tok.i + 1
+        if not cuts:
+            return []
+        parts, prev = [], 0
+        for cut in cuts:
+            parts.append(doc[prev:cut].text)
+            prev = cut + 1
+        parts.append(doc[prev:].text)
+        cleaned = [p.strip(" ,;.").removeprefix("and ").strip() for p in parts]
+        cleaned = [p for p in cleaned if len(p.split()) >= 2]
+        return cleaned if len(cleaned) >= 2 else []
+
     # ------------------------------------------------------------------ analysis
     def analyze(self, texts: list[str], *, mask_names: tuple[str, ...] = ()) -> list[TextAnalysis]:
         name_re = self._name_regex(mask_names)

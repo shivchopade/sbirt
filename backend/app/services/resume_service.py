@@ -333,6 +333,8 @@ def _breakdown_json(result: AnalysisResult, resources: Resources) -> dict[str, A
                 "met": m.met,
                 "weight": m.weight,
                 "kind": m.kind,
+                "method": m.method,
+                "parts": m.parts,
             }
             for m in clean.requirements
         ],

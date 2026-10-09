@@ -958,6 +958,19 @@
             "title": "Met",
             "type": "boolean"
           },
+          "method": {
+            "default": "whole",
+            "description": "whole, or clauses when a compound requirement was split",
+            "title": "Method",
+            "type": "string"
+          },
+          "parts": {
+            "items": {
+              "$ref": "#/components/schemas/RequirementPartOut"
+            },
+            "title": "Parts",
+            "type": "array"
+          },
           "resume_section": {
             "anyOf": [
               {
@@ -1002,6 +1015,14 @@
             "title": "Kind",
             "type": "string"
           },
+          "parts": {
+            "description": "Clauses of a compound requirement",
+            "items": {
+              "type": "string"
+            },
+            "title": "Parts",
+            "type": "array"
+          },
           "section": {
             "title": "Section",
             "type": "string"
@@ -1024,6 +1045,36 @@
           "kind"
         ],
         "title": "RequirementOut",
+        "type": "object"
+      },
+      "RequirementPartOut": {
+        "properties": {
+          "best_resume_line": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Best Resume Line"
+          },
+          "similarity": {
+            "title": "Similarity",
+            "type": "number"
+          },
+          "text": {
+            "title": "Text",
+            "type": "string"
+          }
+        },
+        "required": [
+          "text",
+          "best_resume_line",
+          "similarity"
+        ],
+        "title": "RequirementPartOut",
         "type": "object"
       },
       "RescoreResponse": {

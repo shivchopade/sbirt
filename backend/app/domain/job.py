@@ -17,6 +17,7 @@ class Requirement:
     weight: float
     section: str  # heading the requirement was found under
     kind: str  # must | nice | responsibility | general
+    parts: list[str] = field(default_factory=list)  # clauses of a compound requirement ("X and Y")
 
 
 @dataclass

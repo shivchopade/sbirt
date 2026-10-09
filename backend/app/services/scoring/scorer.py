@@ -34,6 +34,7 @@ if TYPE_CHECKING:
 class JobVectors:
     requirements: np.ndarray
     jd_mean: np.ndarray | None
+    parts: list[np.ndarray | None] = field(default_factory=list)  # clause vectors per requirement
 
 
 @dataclass
@@ -67,8 +68,11 @@ def job_vectors(job: ParsedJob, resources: Resources) -> JobVectors:
         if job.requirements
         else np.zeros((0, emb.dim), dtype=np.float32)
     )
+    parts = [emb.encode(r.parts) if r.parts else None for r in job.requirements]
     content = job.content_sentences or [r.text for r in job.requirements]
-    return JobVectors(requirements=reqs, jd_mean=mean_vector(emb.encode(content)) if content else None)
+    return JobVectors(
+        requirements=reqs, jd_mean=mean_vector(emb.encode(content)) if content else None, parts=parts
+    )
 
 
 def select_units(units: list[TextUnit], mode: str, min_words: int) -> list[TextUnit]:
@@ -104,6 +108,7 @@ def score_units(
         floor=sc.calib_floor,
         ceiling=sc.calib_ceiling,
         met_threshold=sc.requirement_met,
+        part_vectors=jv.parts,
     )
     found: dict[str, str] = {}
     for unit in units:

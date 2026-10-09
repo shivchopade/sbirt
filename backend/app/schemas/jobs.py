@@ -17,6 +17,7 @@ class RequirementOut(BaseModel):
     weight: float = Field(description="1.0 = must have / responsibility, 0.5 = nice to have")
     section: str
     kind: str
+    parts: list[str] = Field(default_factory=list, description="Clauses of a compound requirement")
 
 
 class SkillOut(BaseModel):

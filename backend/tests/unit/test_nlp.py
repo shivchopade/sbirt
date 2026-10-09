@@ -134,3 +134,18 @@ def test_personal_details_never_scored(nlp_engine) -> None:
         "Marital Status",
         "Father's Name",
     }
+
+
+def test_compound_requirements_are_split_into_clauses(nlp_engine) -> None:
+    assert nlp_engine.clauses("Write unit and integration tests and take part in code reviews.") == [
+        "Write unit and integration tests",
+        "take part in code reviews",
+    ]
+    assert nlp_engine.clauses("Monitor production systems and improve reliability and performance.") == [
+        "Monitor production systems",
+        "improve reliability and performance",
+    ]
+    # shared objects and noun lists stay whole
+    assert nlp_engine.clauses("Design, build and maintain scalable REST APIs using Python and FastAPI.") == []
+    assert nlp_engine.clauses("Experience with Kubernetes and CI/CD pipelines.") == []
+    assert nlp_engine.clauses("Understanding of authentication, caching and message queues.") == []

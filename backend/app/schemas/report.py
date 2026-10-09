@@ -17,6 +17,12 @@ class CandidateInfo(BaseModel):
     links: list[str] = Field(default_factory=list)
 
 
+class RequirementPartOut(BaseModel):
+    text: str
+    best_resume_line: str | None
+    similarity: float
+
+
 class RequirementMatchOut(BaseModel):
     jd_requirement: str
     best_resume_line: str | None
@@ -26,6 +32,10 @@ class RequirementMatchOut(BaseModel):
     met: bool
     weight: float
     kind: str
+    method: str = Field(
+        default="whole", description="whole, or clauses when a compound requirement was split"
+    )
+    parts: list[RequirementPartOut] = Field(default_factory=list)
 
 
 class SkillDetailOut(BaseModel):
